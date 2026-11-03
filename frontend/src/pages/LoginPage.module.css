@@ -1,0 +1,219 @@
+/* Login brand */
+
+.loginBrand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 36px;
+  text-decoration: none;
+}
+
+.loginBrandText h1 {
+  margin: 0;
+  color: #163A32;
+  font-size: 25px;
+  letter-spacing: -0.7px;
+}
+
+.loginBrandText span {
+  display: block;
+  margin-top: 4px;
+  color: #748078;
+  font-size: 11px;
+}
+
+/* Brand */
+
+.brandMark {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  color: #ffffff;
+  background: var(--color-primary);
+  border-radius: 13px;
+
+  font-size: 21px;
+  font-weight: 750;
+  letter-spacing: -1.5px;
+}
+
+/* Login page */
+
+.loginPage {
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #DFEADF;
+}
+
+.loginCard {
+  width: 100%;
+  max-width: 420px;
+  padding: 36px;
+
+  background: #ffffff;
+  border: 1px solid #D5E1D5;
+  border-radius: 18px;
+
+  box-shadow: 0 12px 40px rgb(22 58 50 / 7%);
+}
+
+.loginHeading {
+  margin-bottom: 26px;
+}
+
+.loginHeading h2,
+.loginCard > h2 {
+  margin: 0 0 8px;
+  color: #163A32;
+  font-size: 25px;
+  letter-spacing: -0.6px;
+}
+
+.loginHeading p,
+.loginCard > p {
+  margin: 0;
+  color: #748078;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+.loginField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.loginField label {
+  color: #26332E;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.loginField input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 13px;
+
+  color: #26332E;
+  background: #ffffff;
+  border: 1px solid #D5E1D5;
+  border-radius: 9px;
+
+  font: inherit;
+  font-size: 13px;
+
+  transition: border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.loginField input::placeholder {
+  color: #9AA49D;
+}
+
+.loginField input:focus {
+  outline: none;
+  border-color: #527D68;
+  box-shadow: 0 0 0 3px rgb(82 125 104 / 12%);
+}
+
+.loginField input:disabled {
+  background: #F4F6F3;
+}
+
+.loginSubmit {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 3px;
+  padding: 12px 16px;
+
+  color: #ffffff;
+  background: #163A32;
+  border: none;
+  border-radius: 9px;
+
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.loginSubmit:hover:not(:disabled) {
+  background: #245447;
+}
+
+.loginSubmit:focus-visible {
+  outline: 3px solid #9ABAA5;
+  outline-offset: 3px;
+}
+
+.loginSubmit:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.loginError {
+  margin: -5px 0 0;
+  padding: 11px 12px;
+
+  color: #A12B25;
+  background: #FFF1F0;
+  border: 1px solid #F2D2CF;
+  border-radius: 8px;
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.loginBack {
+  display: block;
+  margin-top: 22px;
+
+  color: #527D68;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.loginBack:hover {
+  color: #163A32;
+  text-decoration: underline;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .loginBrand {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loginPage {
+    padding: 16px;
+  }
+
+  .loginCard {
+    padding: 26px 22px;
+    border-radius: 14px;
+  }
+
+  .loginBrand {
+    margin-bottom: 30px;
+  }
+}

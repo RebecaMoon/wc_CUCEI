@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login, logout } from "../services/auth";
+import styles from "./LoginPage.module.css";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -10,7 +11,6 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
- 
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -48,34 +48,36 @@ export default function LoginPage() {
     }
   }
 
-
   return (
-    <main className="login-page">
-      <section className="login-card">
+    <main className={styles.loginPage}>
+      <section className={styles.loginCard}>
         <Link
           to="/"
-          className="login-brand"
+          className={styles.loginBrand}
           aria-label="Volver al mapa de wc CUCEI"
         >
-          <div className="brand-mark" aria-hidden="true">
+          <div className={styles.brandMark} aria-hidden="true">
             wc
           </div>
 
-          <div className="login-brand-text">
+          <div className={styles.loginBrandText}>
             <h1>CUCEI</h1>
             <span>Servicios sanitarios del campus</span>
           </div>
         </Link>
 
-        <div className="login-heading">
+        <div className={styles.loginHeading}>
           <h2>Bienvenido</h2>
           <p>
             Inicia sesión para administrar los baños del campus.
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="login-form">
-          <div className="login-field">
+        <form
+          onSubmit={handleSubmit}
+          className={styles.loginForm}
+        >
+          <div className={styles.loginField}>
             <label htmlFor="username">
               Nombre de usuario
             </label>
@@ -95,7 +97,7 @@ export default function LoginPage() {
             />
           </div>
 
-          <div className="login-field">
+          <div className={styles.loginField}>
             <label htmlFor="password">
               Contraseña
             </label>
@@ -116,21 +118,21 @@ export default function LoginPage() {
           </div>
 
           {error && (
-            <p className="login-error" role="alert">
+            <p className={styles.loginError} role="alert">
               {error}
             </p>
           )}
 
           <button
             type="submit"
-            className="login-submit"
+            className={styles.loginSubmit}
             disabled={loading}
           >
             {loading ? "Iniciando sesión..." : "Iniciar sesión"}
           </button>
         </form>
 
-        <Link to="/" className="login-back">
+        <Link to="/" className={styles.loginBack}>
           Volver al mapa
         </Link>
       </section>

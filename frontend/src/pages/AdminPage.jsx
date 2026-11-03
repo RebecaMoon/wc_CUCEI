@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { getCurrentUser, logout } from "../services/auth";
+import Header from "../components/layout/Header";
 import {
   createCustodian,
   getCustodians,
@@ -251,37 +252,11 @@ export default function AdminPage() {
 
   return (
     <main className="admin-page">
-      <header className="map-header">
-        <div className="map-header-content">
-          <Link to="/" className="brand admin-brand">
-            <div className="brand-mark" aria-hidden="true">
-              wc
-            </div>
-
-            <div className="brand-text">
-              <h1>CUCEI</h1>
-              <span>Servicios sanitarios del campus</span>
-            </div>
-          </Link>
-            <div className="admin-header-actions">
-              
-
-              <Link to="/admin/map" className="admin-map-button">
-                Ver mapa
-              </Link>
-
-              <button
-                type="button"
-                className="admin-logout"
-                onClick={handleLogout}
-                disabled={loggingOut}
-              >
-                {loggingOut ? "Cerrando..." : "Cerrar sesión"}
-              </button>
-            </div>
-
-        </div>
-      </header>
+      <Header
+        isAdmin
+        onLogout={handleLogout}
+        loggingOut={loggingOut}
+      />
 
       <section className="admin-content">
         <div className="admin-intro">

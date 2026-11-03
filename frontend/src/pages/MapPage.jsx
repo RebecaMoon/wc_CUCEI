@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { logout } from "../services/auth";
-import { Link } from "react-router-dom";
+import Header from "../components/layout/Header";
 import {
   ImageOverlay,
   MapContainer,
@@ -561,85 +561,14 @@ export default function MapPage({
   >
       
     
-    <header className="map-header">
-      <div className="map-header-content">
-        <div className="brand">
-          <div className="brand-mark" aria-hidden="true">
-            wc
-          </div>
-
-          <div className="brand-text">
-            <h1>CUCEI</h1>
-            <span>Servicios sanitarios</span>
-          </div>
-        </div>
-
-        <div className="header-actions">
-          <p className="header-description">
-            Encuentra un baño disponible.
-          </p>
-
-
-          {!isCustodian && !isAdmin && (
-            <Link to="/login" className="login-map-button">
-              Iniciar sesión
-            </Link>
-          )}
-
-          {isCustodian && (
-            <button
-              type="button"
-              className="login-map-button custodian-logout-button"
-              onClick={handleCustodianLogout}
-              disabled={loggingOut}
-            >
-              {loggingOut ? "Cerrando sesión..." : "Cerrar sesión"}
-            </button>
-          )}
-
-
-            {isAdmin && (
-              <Link
-                to="/admin"
-                className="admin-back-button"
-              >
-                ← Volver a administración
-              </Link>
-            )}
-
-          <div className="gender-filters" aria-label="Filtrar baños">
-            <button
-              type="button"
-              className={`gender-button ${
-                genderFilter === "Hombres" ? "active men" : ""
-              }`}
-              aria-pressed={genderFilter === "Hombres"}
-              onClick={() => toggleGenderFilter("Hombres")}
-            >
-              <span className="gender-symbol" aria-hidden="true">
-                ♂
-              </span>
-              Hombres
-            </button>
-
-            <button
-              type="button"
-              className={`gender-button ${
-                genderFilter === "Mujeres" ? "active women" : ""
-              }`}
-              aria-pressed={genderFilter === "Mujeres"}
-              onClick={() => toggleGenderFilter("Mujeres")}
-            >
-              <span className="gender-symbol" aria-hidden="true">
-                ♀
-              </span>
-              Mujeres
-            </button>
-          </div>
-        </div>
-      </div>
-    </header>
-
+    <Header
+      isCustodian={isCustodian}
+      isAdmin={isAdmin}
+      genderFilter={genderFilter}
+      onGenderFilterChange={toggleGenderFilter}
+      onLogout={handleCustodianLogout}
+      loggingOut={loggingOut}
+    />
 
 
       {loading && (
