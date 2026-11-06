@@ -564,6 +564,7 @@ export default function MapPage({
     <Header
       isCustodian={isCustodian}
       isAdmin={isAdmin}
+      isAdminMap={isAdmin}
       isAuthenticated={isCustodian || isAdmin}
       showGenderFilters={true}
       genderFilter={genderFilter}

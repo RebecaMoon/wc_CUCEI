@@ -4,6 +4,7 @@ import styles from "./Header.module.css";
 export default function Header({
     isCustodian = false,
     isAdmin = false,
+    isAdminMap = false,
     genderFilter = null,
     isAuthenticated = false,
     showGenderFilters = true,
@@ -58,9 +59,15 @@ export default function Header({
 
                     {isAdmin && (
                         <>
-                            <Link to="/admin/map" className={styles.adminBackButton}>
-                                Ver mapa
-                            </Link>
+                            {isAdminMap ? (
+                                <Link to="/admin" className={styles.adminBackButton}>
+                                    Panel de administración
+                                </Link>
+                            ) : (
+                                <Link to="/admin/map" className={styles.adminBackButton}>
+                                    Ver mapa
+                                </Link>
+                            )}
 
                             <button
                                 type="button"
