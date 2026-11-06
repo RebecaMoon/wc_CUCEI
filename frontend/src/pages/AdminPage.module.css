@@ -1,0 +1,577 @@
+/* Admin page */
+
+.adminPage {
+  min-height: 100vh;
+  background: #EAF4FF;
+  
+}
+
+.adminHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.adminRole {
+  color: #527D68;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.adminLogout {
+  padding: 9px 13px;
+  color: #163A32;
+  background: #ffffff;
+  border: 1px solid #D5E1D5;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.adminLogout:hover:not(:disabled) {
+  background: #EAF1E8;
+}
+
+.adminLogout:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.adminContent {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+
+.adminIntro {
+  margin-bottom: 28px;
+}
+
+.adminEyebrow {
+  color: #527D68;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.adminIntro h2 {
+  margin: 10px 0;
+  color: #163A32;
+  font-size: clamp(25px, 4vw, 32px);
+  letter-spacing: -0.8px;
+}
+
+.adminIntro p {
+  max-width: 540px;
+  margin: 0;
+  color: #66766B;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.adminCard {
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #D5E1D5;
+  border-radius: 15px;
+  box-shadow: 0 8px 28px rgb(22 58 50 / 5%);
+}
+
+.adminCardHeading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 26px;
+}
+
+.adminCardIcon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  color: #ffffff;
+  background: #163A32;
+  border-radius: 11px;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.adminCardHeading h3 {
+  margin: 0 0 5px;
+  color: #163A32;
+  font-size: 17px;
+}
+
+.adminCardHeading p {
+  margin: 0;
+  color: #748078;
+  font-size: 12px;
+}
+
+.adminForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.adminFieldHint {
+  color: #748078;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.adminSubmit {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 2px;
+  padding: 12px 16px;
+  color: #ffffff;
+  background: #163A32;
+  border: none;
+  border-radius: 9px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.adminSubmit:hover:not(:disabled) {
+  background: #245447;
+}
+
+.adminSubmit:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.adminFeedback {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.adminFeedback p {
+  margin: 5px 0 0;
+}
+
+.error {
+  color: #A12B25;
+  background: #FFF1F0;
+  border: 1px solid #F2D2CF;
+}
+
+.success {
+  color: #245447;
+  background: #EAF5EA;
+  border: 1px solid #CBE3CC;
+}
+
+@media (max-width: 520px) {
+  .adminPage :global(.map-header) {
+    padding: 16px;
+  }
+
+  .adminPage :global(.map-header-content) {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .adminHeaderActions {
+    align-items: center;
+    flex-direction: row;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .adminRole {
+    font-size: 11px;
+  }
+
+  .adminContent {
+    padding: 32px 16px 44px;
+  }
+
+  .adminCard {
+    padding: 22px 18px;
+  }
+}
+
+/* Lista de cuentas de intendentes */
+
+.adminListCard {
+  margin-top: 24px;
+}
+
+.adminListCard .adminCardHeading {
+  flex-wrap: wrap;
+}
+
+.adminRefresh {
+  margin-left: auto;
+  padding: 9px 12px;
+  color: #245447;
+  background: #F3F7F1;
+  border: 1px solid #D5E1D5;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.adminRefresh:hover:not(:disabled) {
+  background: #EAF1E8;
+}
+
+.adminRefresh:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.adminListEmpty {
+  margin: 0;
+  padding: 28px 16px;
+  color: #748078;
+  background: #F7FAF6;
+  border: 1px dashed #D5E1D5;
+  border-radius: 10px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.adminCustodianList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.adminCustodian {
+  min-width: 0;
+  padding: 20px;
+  background: #FBFCFA;
+  border: 1px solid #DCE6DB;
+  border-radius: 12px;
+}
+
+.adminCustodianTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.adminCustodianTop > div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.adminCustodianId {
+  color: #748078;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+}
+
+.adminStatus {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.active {
+  color: #245447;
+  background: #E4F2E5;
+}
+
+.inactive {
+  color: #8A5B30;
+  background: #F8EDDF;
+}
+
+
+
+/* Contenedor de cada campo del formulario */
+.adminCustodianFields {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+    background: transparent;
+}
+
+/* Etiquetas */
+.adminCustodianFields label {
+    color: #163A32;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* Inputs */
+.adminCustodianFields input {
+    width: 100%;
+    min-height: 46px;
+    box-sizing: border-box;
+    padding: 12px 14px;
+
+    color: #163A32;
+    background: #FFFFFF;
+
+    border: 1px solid #C6DDF5;
+    border-radius: 10px;
+
+    font: inherit;
+    font-size: 13px;
+
+    outline: none;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+/* Placeholder */
+.adminCustodianFields input::placeholder {
+    color: #8A9BAA;
+}
+
+/* Focus */
+.adminCustodianFields input:focus {
+    border-color: #6B9BCB;
+    box-shadow: 0 0 0 3px rgb(107 155 203 / 15%);
+}
+
+/* Texto de ayuda */
+.adminFieldHint {
+    color: #71869A;
+    font-size: 11px;
+    line-height: 1.5;
+    background: transparent;
+}
+
+.adminCustodianActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #E5EBE3;
+}
+
+.adminCustodianActions button {
+  min-height: 40px;
+  padding: 10px 13px;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 150ms ease, opacity 150ms ease;
+}
+
+.adminCustodianActions button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.adminCustodianActions .adminSave {
+  width: auto;
+  min-height: 40px;
+  margin: 0;
+  flex: 1 1 150px;
+}
+
+.adminSecondary {
+  color: #245447;
+  background: #EAF1E8;
+  border: 1px solid #D5E1D5;
+}
+
+.adminSecondary:hover:not(:disabled) {
+  background: #DCEADB;
+}
+
+.adminDelete {
+  color: #A12B25;
+  background: #FFF7F6;
+  border: 1px solid #F0D5D2;
+}
+
+.adminDelete:hover:not(:disabled) {
+  background: #FCE9E7;
+}
+
+@media (max-width: 520px) {
+  .adminListCard {
+    padding: 22px 16px;
+  }
+
+  .adminListCard .adminCardHeading {
+    align-items: flex-start;
+  }
+
+  .adminRefresh {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .adminCustodian {
+    padding: 16px 13px;
+  }
+
+  .adminCustodianActions {
+    flex-direction: column;
+  }
+
+  .adminCustodianActions button,
+  .adminCustodianActions .adminSave {
+    width: 100%;
+    flex: auto;
+  }
+}
+
+
+
+
+
+/* ========================================
+   Ajustes de la paleta azul de administración
+======================================== */
+
+/* Títulos y detalles del panel */
+.adminPage .adminEyebrow {
+    color: #365F85;
+}
+
+.adminPage .adminIntro p {
+    color: #52677D;
+}
+
+/* Tarjetas blancas sobre el fondo azul */
+.adminPage .adminCard {
+    background: #FFFFFF;
+    border-color: #C6DDF5;
+}
+
+/* Iconos: conservar el verde del logo */
+.adminPage .adminCardIcon {
+    background: #163A32;
+}
+
+/* Tarjetas individuales de las cuentas */
+.adminPage .adminCustodian {
+    background: #F7FAFF;
+    border-color: #D5E5F7;
+}
+
+
+/* Botones principales del panel */
+.adminPage .adminSubmit {
+    color: #FFFFFF;
+    background: #3679B9;
+    border: 1px solid #3679B9;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.adminPage .adminSubmit:hover:not(:disabled) {
+    background: #28649E;
+    border-color: #28649E;
+}
+
+.adminPage .adminSubmit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Botón secundario */
+.adminPage .adminSecondary {
+    color: #365F85;
+    background: #EAF4FF;
+    border-color: #C6DDF5;
+}
+
+.adminPage .adminSecondary:hover:not(:disabled) {
+    background: #DCEEFF;
+}
+
+/* Mensajes vacíos */
+.adminPage .adminListEmpty {
+    background: #F5F9FF;
+    border-color: #C6DDF5;
+}
+
+
+/* ========================================
+   Selector entre creación y edición de cuentas
+======================================== */
+
+.adminViewSwitch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding: 16px 18px;
+    background: #F7FAFF;
+    border: 1px solid #C6DDF5;
+    border-radius: 12px;
+}
+
+.adminViewSwitch p {
+    margin: 0;
+    color: #52677D;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.adminViewButton {
+    min-height: 42px;
+    padding: 10px 16px;
+    color: #FFFFFF;
+    background: #3679B9;
+    border: 1px solid #3679B9;
+    border-radius: 9px;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.adminViewButton:hover {
+    background: #28649E;
+    border-color: #28649E;
+}
+
+.adminViewButton:focus-visible {
+    outline: 3px solid #9CC7F0;
+    outline-offset: 3px;
+}
+
+
+/* ========================================
+   Responsive
+======================================== */
+
+@media (max-width: 520px) {
+    .adminViewSwitch {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .adminViewButton {
+        width: 100%;
+    }
+}

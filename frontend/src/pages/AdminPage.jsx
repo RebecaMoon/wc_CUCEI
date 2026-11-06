@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { getCurrentUser, logout } from "../services/auth";
 import Header from "../components/layout/Header";
+import styles from "./AdminPage.module.css";
 import {
   createCustodian,
   getCustodians,
@@ -251,21 +252,23 @@ export default function AdminPage() {
   }
 
   return (
-    <main className="admin-page">
+    <main className={styles.adminPage}>
+
       <Header
         isAdmin
+        isAuthenticated
         onLogout={handleLogout}
         loggingOut={loggingOut}
       />
 
-      <section className="admin-content">
-        <div className="admin-intro">
+      <section className={styles.adminContent}>
+        <div className={styles.adminIntro}>
 
 
-        <div className="admin-view-switch">
+        <div className={styles.adminViewSwitch}>
           <button
             type="button"
-            className="admin-view-button"
+            className={styles.adminViewButton}
             onClick={() =>
               setViewMode((current) =>
                 current === "create" ? "edit" : "create"
@@ -285,7 +288,7 @@ export default function AdminPage() {
         </div>
 
 
-          <span className="admin-eyebrow">
+          <span className={styles.adminEyebrow}>
             PANEL DE ADMINISTRACIÓN
           </span>
 
@@ -295,9 +298,9 @@ export default function AdminPage() {
         </div>
 
         {viewMode === "create" && (
-          <section className="admin-card">
-          <div className="admin-card-heading">
-            <div className="admin-card-icon" aria-hidden="true">
+          <section className={styles.adminCard}>
+          <div className={styles.adminCardHeading}>
+            <div className={styles.adminCardIcon} aria-hidden="true">
               +
             </div>
 
@@ -307,8 +310,8 @@ export default function AdminPage() {
             </div>
           </div>
 
-          <form className="admin-form" onSubmit={handleSubmit}>
-            <div className="login-field">
+          <form className={styles.adminForm} onSubmit={handleSubmit}>
+            <div className={styles.adminCustodianFields}>
               <label htmlFor="full-name">Nombre completo</label>
 
               <input
@@ -324,7 +327,7 @@ export default function AdminPage() {
               />
             </div>
 
-            <div className="login-field">
+            <div className={styles.adminCustodianFields}>
               <label htmlFor="new-username">Nombre de usuario</label>
 
               <input
@@ -340,7 +343,7 @@ export default function AdminPage() {
               />
             </div>
 
-            <div className="login-field">
+            <div className={styles.adminCustodianFields}>
               <label htmlFor="new-password">Contraseña</label>
 
               <input
@@ -355,19 +358,19 @@ export default function AdminPage() {
                 disabled={loading}
               />
 
-              <span className="admin-field-hint">
+              <span className={styles.adminFieldHint}>
                 La contraseña debe tener al menos 12 caracteres.
               </span>
             </div>
 
             {error && (
-              <p className="admin-feedback error" role="alert">
+              <p className={`${styles.adminFeedback} ${styles.error}`} role="alert">
                 {error}
               </p>
             )}
 
             {message && (
-              <div className="admin-feedback success" role="status">
+              <div className={`${styles.adminFeedback} ${styles.success}`} role="status">
                 <strong>{message}</strong>
 
                 {createdUser && (
@@ -380,7 +383,7 @@ export default function AdminPage() {
 
             <button
               type="submit"
-              className="admin-submit"
+              className={styles.adminSubmit}
               disabled={loading}
             >
               {loading ? "Creando cuenta..." : "Crear cuenta de intendente"}
@@ -391,9 +394,9 @@ export default function AdminPage() {
 
 
         {viewMode === "edit" && (
-        <section className="admin-card admin-list-card">
-          <div className="admin-card-heading">
-            <div className="admin-card-icon" aria-hidden="true">
+        <section className={`${styles.adminCard} ${styles.adminListCard}`}>
+          <div className={styles.adminCardHeading}>
+            <div className={styles.adminCardIcon} aria-hidden="true">
               <span aria-hidden="true">≡</span>
             </div>
 
@@ -409,7 +412,7 @@ export default function AdminPage() {
           {/*
             <button
               type="button"
-              className="admin-refresh"
+              className={styles.adminRefresh}
               onClick={loadCustodians}
               disabled={loadingCustodians}
             >
@@ -419,37 +422,37 @@ export default function AdminPage() {
           </div>
 
           {listError && (
-            <p className="admin-feedback error" role="alert">
+            <p className={`${styles.adminFeedback} ${styles.error}`} role="alert">
               {listError}
             </p>
           )}
 
           {listMessage && (
-            <p className="admin-feedback success" role="status">
+            <p className={`${styles.adminFeedback} ${styles.success}`} role="status">
               {listMessage}
             </p>
           )}
 
           {loadingCustodians ? (
-            <p className="admin-list-empty">
+            <p className={styles.adminListEmpty}>
               Cargando cuentas...
             </p>
           ) : custodians.length === 0 ? (
-            <p className="admin-list-empty">
+            <p className={styles.adminListEmpty}>
               No hay cuentas de intendentes registradas.
             </p>
           ) : (
-            <div className="admin-custodian-list">
+            <div className={styles.adminCustodianList}>
               {custodians.map((user) => (
-                <article className="admin-custodian" key={user.id}>
-                  <div className="admin-custodian-top">
+                <article className={styles.adminCustodian} key={user.id}>
+                  <div className={styles.adminCustodianTop}>
                     <div>
-                      <span className="admin-custodian-id">
+                      <span className={styles.adminCustodianId}>
                         CUENTA #{user.id}
                       </span>
                       <span
-                        className={`admin-status ${
-                          user.is_active ? "active" : "inactive"
+                        className={`${styles.adminStatus} ${
+                          user.is_active ? styles.active : styles.inactive
                         }`}
                       >
                         {user.is_active ? "Activa" : "Desactivada"}
@@ -457,8 +460,8 @@ export default function AdminPage() {
                     </div>
                   </div>
 
-                  <div className="admin-custodian-fields">
-                    <div className="login-field">
+                  <div className={styles.adminCustodianFields}>
+                    <div className={styles.adminCustodianFields}>
                       <label htmlFor={`name-${user.id}`}>
                         Nombre completo
                       </label>
@@ -478,7 +481,7 @@ export default function AdminPage() {
                       />
                     </div>
 
-                    <div className="login-field">
+                    <div className={styles.adminCustodianFields}>
                       <label htmlFor={`username-${user.id}`}>
                         Nombre de usuario
                       </label>
@@ -498,7 +501,7 @@ export default function AdminPage() {
                       />
                     </div>
 
-                    <div className="login-field">
+                    <div className={styles.adminCustodianFields}>
                       <label htmlFor={`password-${user.id}`}>
                         Nueva contraseña (opcional)
                       </label>
@@ -518,16 +521,16 @@ export default function AdminPage() {
                         }
                         disabled={savingId === user.id}
                       />
-                      <span className="admin-field-hint">
+                      <span className={styles.adminFieldHint}>
                         Si la cambias, debe tener al menos 12 caracteres.
                       </span>
                     </div>
                   </div>
 
-                  <div className="admin-custodian-actions">
+                  <div className={styles.adminCustodianActions}>
                     <button
                       type="button"
-                      className="admin-submit admin-save"
+                      className={`${styles.adminSubmit} ${styles.adminSave}`}
                       onClick={() => handleSave(user)}
                       disabled={
                         savingId === user.id ||
@@ -542,7 +545,7 @@ export default function AdminPage() {
 
                     <button
                       type="button"
-                      className="admin-secondary"
+                      className={styles.adminSecondary}
                       onClick={() => handleToggleStatus(user)}
                       disabled={
                         savingId === user.id ||
@@ -559,7 +562,7 @@ export default function AdminPage() {
 
                     <button
                       type="button"
-                      className="admin-delete"
+                      className={styles.adminDelete}
                       onClick={() => handleDelete(user)}
                       disabled={
                         savingId === user.id ||

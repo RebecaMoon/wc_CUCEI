@@ -5,12 +5,17 @@ export default function Header({
     isCustodian = false,
     isAdmin = false,
     genderFilter = null,
+    isAuthenticated = false,
     onGenderFilterChange,
     onLogout,
     loggingOut = false,
 }) {
     return (
-        <header className={styles.header}>
+        <header
+                className={`${styles.header} ${
+                    isAuthenticated ? styles.authenticated : ""
+                }`}
+            >
             <div className={styles.headerContent}>
                 <div className={styles.brand}>
                     <div className={styles.brandMark} aria-hidden="true">
@@ -19,14 +24,17 @@ export default function Header({
 
                     <div className={styles.brandText}>
                         <h1>CUCEI</h1>
-                        <span>Servicios sanitarios</span>
+                        <span>Servicios sanitarios del campus</span>
                     </div>
                 </div>
 
                 <div className={styles.headerActions}>
-                    <p className={styles.headerDescription}>
-                        Encuentra un baño disponible.
-                    </p>
+
+                    {!isAuthenticated && (
+                        <p className={styles.headerDescription}>
+                            Encuentra un baño disponible.
+                        </p>
+                    )}
 
                     {!isCustodian && !isAdmin && (
                         <Link to="/login" className={styles.loginButton}>
@@ -64,10 +72,11 @@ export default function Header({
                         </>
                     )}
 
-                    <div
-                        className={styles.genderFilters}
-                        aria-label="Filtrar baños"
-                    >
+                   {!isAuthenticated && (
+                        <div
+                            className={styles.genderFilters}
+                            aria-label="Filtrar baños"
+                        >
                         <button
                             type="button"
                             className={`${styles.genderButton} ${
@@ -99,9 +108,11 @@ export default function Header({
                             <span aria-hidden="true">♀</span>
                             Mujeres
                         </button>
+
+                            </div>
+)}
                     </div>
                 </div>
-            </div>
         </header>
     );
 }

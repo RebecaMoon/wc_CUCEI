@@ -258,3 +258,30 @@
     transition: none;
   }
 }
+
+
+
+
+/* Header para usuarios autenticados */
+
+
+.authenticated {
+    background: #DCEEFF;
+    border-bottom: 1px solid #C5DDF5;
+}
+
+.authenticated .brandMark {
+    background: #173F3A;
+}
+
+.authenticated .brandText h1 {
+    color: #173F3A;
+}
+
+.authenticated .brandText span {
+    color: #71869A;
+}
+
+.authenticated .headerDescription {
+    color: #566F85;
+}
