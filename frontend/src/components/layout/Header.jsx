@@ -6,6 +6,7 @@ export default function Header({
     isAdmin = false,
     genderFilter = null,
     isAuthenticated = false,
+    showGenderFilters = true,
     onGenderFilterChange,
     onLogout,
     loggingOut = false,
@@ -72,7 +73,7 @@ export default function Header({
                         </>
                     )}
 
-                   {!isAuthenticated && (
+                   {showGenderFilters && (
                         <div
                             className={styles.genderFilters}
                             aria-label="Filtrar baños"

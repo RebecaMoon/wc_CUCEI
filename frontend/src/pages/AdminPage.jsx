@@ -257,6 +257,7 @@ export default function AdminPage() {
       <Header
         isAdmin
         isAuthenticated
+        showGenderFilters={false}
         onLogout={handleLogout}
         loggingOut={loggingOut}
       />
